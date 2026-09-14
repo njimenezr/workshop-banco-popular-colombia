@@ -1,6 +1,6 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC # Workshop Data Generator — Banco Guayaquil Genie Code Workshop
+# MAGIC # Workshop Data Generator — Banco Popular de Colombia Genie Code Workshop
 # MAGIC
 # MAGIC Genera tablas sintéticas de datos bancarios en `workshop.gold` (núcleo del taller + **complemento marketplace** enlazado al módulo SDP).
 # MAGIC Incluye defectos de calidad intencionados para el track de Governance.
@@ -21,7 +21,7 @@
 CATALOG = "workshop"
 SCHEMA = "gold"
 
-# Regiones sintéticas (hub territorial) — taller Banco Guayaquil; datos 100% ficticios
+# Regiones sintéticas (hub territorial) — taller Banco Popular de Colombia; datos 100% ficticios
 COUNTRIES = {
     "GY": {
         "name": "Costa — Guayas",
@@ -170,7 +170,7 @@ customer_id_counter = 0
 for cc, info in COUNTRIES.items():
     for i in range(info["customers"]):
         customer_id_counter += 1
-        cid = f"BGY-{cc}-CLI-{customer_id_counter:06d}"
+        cid = f"BPC-{cc}-CLI-{customer_id_counter:06d}"
         city = np.random.choice(info["cities"])
         segment = np.random.choice(SEGMENTS, p=SEGMENT_WEIGHTS)
         risk = np.random.choice(RISK_PROFILES, p=RISK_WEIGHTS)
@@ -260,7 +260,7 @@ for cc, info in COUNTRIES.items():
 
         branch_rows.append({
             "branch_id": bid,
-            "branch_name": f"Banco Guayaquil {city} #{i+1}",
+            "branch_name": f"Banco Popular de Colombia {city} #{i+1}",
             "city": city,
             "country_code": cc,
             "country_name": info["name"],
@@ -364,7 +364,7 @@ null_date_idx = np.random.choice(len(df_tx), 30, replace=False)
 df_tx.loc[null_date_idx, "transaction_date"] = None
 
 # 60 filas: customer_id huérfano (no existe en dim_clientes — integridad referencial rota)
-orphan_cids = [f"BGY-XX-CLI-{900000+i:06d}" for i in range(60)]
+orphan_cids = [f"BPC-XX-CLI-{900000+i:06d}" for i in range(60)]
 orphan_idx = np.random.choice(len(df_tx), 60, replace=False)
 for i, idx in enumerate(orphan_idx):
     df_tx.loc[idx, "customer_id"] = orphan_cids[i]
@@ -398,9 +398,9 @@ for cc, info in COUNTRIES.items():
     for i in range(n_loans):
         loan_counter += 1
         product = np.random.choice(PRODUCT_TYPES, p=PRODUCT_WEIGHTS)
-        loan_id = f"BGY-{cc}-{product[:3].upper()}-{loan_counter:06d}"
+        loan_id = f"BPC-{cc}-{product[:3].upper()}-{loan_counter:06d}"
 
-        cid = np.random.choice(country_customers) if country_customers else f"BGY-{cc}-CLI-000001"
+        cid = np.random.choice(country_customers) if country_customers else f"BPC-{cc}-CLI-000001"
 
         disb_date = date(2020, 1, 1) + timedelta(days=int(np.random.uniform(0, 365 * 5)))
 
@@ -691,7 +691,7 @@ else:
 # MAGIC %md
 # MAGIC ## Landing SDP (JSON alineado — taller SDP sigue independiente)
 # MAGIC
-# MAGIC Crea `workshop.ingest.raw` si hace falta y escribe `orders/`, `status/`, `customers/` con **mismos** `customer_id` (BGY-…) y `order_id` (ORD…) que `fact_pedidos_marketplace`. El pipeline SDP **solo** lee archivos; materializa el medallón en **`workshop.bronze`**, **`workshop.silver`** y **`workshop.gold`** (`marketplace_*`, `fact_marketplace_*`, `dim_marketplace_*` — ver `sdp-workshop/transformations/*.sql`).
+# MAGIC Crea `workshop.ingest.raw` si hace falta y escribe `orders/`, `status/`, `customers/` con **mismos** `customer_id` (BPC-…) y `order_id` (ORD…) que `fact_pedidos_marketplace`. El pipeline SDP **solo** lee archivos; materializa el medallón en **`workshop.bronze`**, **`workshop.silver`** y **`workshop.gold`** (`marketplace_*`, `fact_marketplace_*`, `dim_marketplace_*` — ver `sdp-workshop/transformations/*.sql`).
 
 # COMMAND ----------
 
@@ -901,4 +901,4 @@ print("=" * 65)
 print("✅ Generación completa. Workshop listo.")
 print()
 print("Genie Data Engineering: CSV del core en /Volumes/workshop/ingest/raw/transacciones_core/transacciones_nuevas.csv")
-print("Lakeflow SDP (sdp-workshop): JSON en /Volumes/workshop/ingest/raw/ (mismos ORD*/BGY-* que fact_pedidos_marketplace)")
+print("Lakeflow SDP (sdp-workshop): JSON en /Volumes/workshop/ingest/raw/ (mismos ORD*/BPC-* que fact_pedidos_marketplace)")

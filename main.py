@@ -11,7 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 
-app = FastAPI(title="Genie Code Workshop — Banco Guayaquil", version="1.0.0")
+app = FastAPI(title="Genie Code Workshop — Banco Popular de Colombia", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,

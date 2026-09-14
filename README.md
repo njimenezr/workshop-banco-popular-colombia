@@ -1,6 +1,6 @@
-# Genie Code Workshop — Banco Guayaquil
+# Genie Code Workshop — Banco Popular de Colombia
 
-Workshop práctico de Databricks Genie Code adaptado para **Banco Guayaquil**. Cubre 4 tracks de ~105 minutos sobre el catálogo **`workshop`**: datos sintéticos en **`gold`** (núcleo bancario + **marketplace digital** complementario al SDP), CSV de transacciones para medallión PySpark (Genie), y el módulo **Lakeflow SDP** en `sdp-workshop/` sobre el mismo catálogo. El pipeline SDP sigue siendo solo archivos; los `customer_id` del JSON coinciden con `dim_clientes` para cruces opcionales en SQL.
+Workshop práctico de Databricks Genie Code adaptado para **Banco Popular de Colombia**. Cubre 4 tracks de ~105 minutos sobre el catálogo **`workshop`**: datos sintéticos en **`gold`** (núcleo bancario + **marketplace digital** complementario al SDP), CSV de transacciones para medallión PySpark (Genie), y el módulo **Lakeflow SDP** en `sdp-workshop/` sobre el mismo catálogo. El pipeline SDP sigue siendo solo archivos; los `customer_id` del JSON coinciden con `dim_clientes` para cruces opcionales en SQL.
 
 ---
 
@@ -103,7 +103,7 @@ GRANT USE SCHEMA ON SCHEMA workshop.gold TO `workshop_users`;
 GRANT SELECT ON ALL TABLES IN SCHEMA workshop.gold TO `workshop_users`;
 ```
 
-> Reemplaza `` `workshop_users` `` por el nombre real del grupo en el workspace de Banco Guayaquil. Si no existe un grupo, agrégalo desde **Settings → Identity & Access → Groups**.
+> Reemplaza `` `workshop_users` `` por el nombre real del grupo en el workspace de Banco Popular de Colombia. Si no existe un grupo, agrégalo desde **Settings → Identity & Access → Groups**.
 
 ---
 
@@ -244,7 +244,7 @@ La columna `country_code` conserva el nombre por compatibilidad con el esquema d
 
 ## Notas para el facilitador
 
-- Los datos son **100% sintéticos** — no contienen información real de Banco Guayaquil ni de sus clientes.
+- Los datos son **100% sintéticos** — no contienen información real de Banco Popular de Colombia ni de sus clientes.
 - Las tablas incluyen ~382 defectos de calidad intencionados para el track de Governance.
 - El track de Data Science requiere ML Runtime en el cluster (para XGBoost y MLflow).
 - Los steps que usan Foundation Model API tienen una advertencia visible en la app — ten un notebook de respaldo con el output esperado por si el endpoint no responde.

@@ -1,6 +1,6 @@
 # Módulo Lakeflow SDP (catálogo único `workshop`)
 
-Todo el material del taller **Spark Declarative Pipelines** vive en esta carpeta del mismo repositorio que el workshop Banco Guayaquil / Genie Code. Los **ejercicios guiados** (mismo estilo de pasos que Genie Code: descripción, prompt, tips) están en **`exercises/lakeflow-sdp/`** en la raíz del repo; aquí solo está el **SQL del pipeline** y la plantilla de **GRANTS**.
+Todo el material del taller **Spark Declarative Pipelines** vive en esta carpeta del mismo repositorio que el workshop Banco Popular de Colombia / Genie Code. Los **ejercicios guiados** (mismo estilo de pasos que Genie Code: descripción, prompt, tips) están en **`exercises/lakeflow-sdp/`** en la raíz del repo; aquí solo está el **SQL del pipeline** y la plantilla de **GRANTS**.
 
 **Cómo encaja con Genie Code:** son **dos estilos de ETL** sobre el mismo catálogo y el **mismo medallón lógico** (`bronze` → `silver` → `gold`):
 

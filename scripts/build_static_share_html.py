@@ -391,8 +391,8 @@ init();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Workshop Banco Guayaquil — guía para participantes (offline).">
-  <title>Workshop Banco Guayaquil — Guía para participantes</title>
+  <meta name="description" content="Workshop Banco Popular de Colombia — guía para participantes (offline).">
+  <title>Workshop Banco Popular de Colombia — Guía para participantes</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
 {css}
@@ -405,7 +405,7 @@ init();
   <div class="topbar">
     <div class="topbar-inner">
       <div class="topbar-left">
-        <div class="topbar-logo" onclick="goBack()"><span class="brand-wordmark">Banco Guayaquil</span></div>
+        <div class="topbar-logo" onclick="goBack()"><span class="brand-wordmark">Banco Popular de Colombia</span></div>
         <nav class="topbar-nav">
           <a href="#" class="active" onclick="return false">Workshop</a>
           <a href="#" onclick="return false">Recursos</a>
@@ -416,7 +416,7 @@ init();
     </div>
   </div>
   <div id="app"></div>
-  <div class="brand-footer">Workshop Banco Guayaquil — Databricks — 2026</div>
+  <div class="brand-footer">Workshop Banco Popular de Colombia — Databricks — 2026</div>
   <script type="application/json" id="ws-embedded-tracks">{tracks_json}</script>
   <script>
 {js}
